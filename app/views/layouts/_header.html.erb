@@ -3,15 +3,22 @@
 <div class="page-header">
 
   <ul class="nav nav-pills pull-left">
-    <li><a href="/listings">Marketplace</a></li>
+    <li><%= link_to "Marketplace", listings_path %></li>
   </ul>
 
 
   <ul class="nav nav-pills pull-right">
     <li><a href="/">Home</a></li>
-    <li><a href="/pages/about">About</a></li>
-    <li><a href="/pages/contact">Contact</a></li>
+    <li><%= link_to "About", pages_about_path %></li>
+    <li><%= link_to "Contact", pages_contact_path %></li>
+    <% if user_signed_in? %>
+        <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+    <% else %>
 
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <li><%= link_to "Sign In", new_user_session_path %></li>
+    <% end %>
   </ul>
  </div>
 </div>
