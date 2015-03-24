@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  resources :businesses
+
+  devise_for :users, path_names: {sign_in: "signin", sign_out: "signout"}
+
   get 'welcome/index'
 
   resources :listings do
