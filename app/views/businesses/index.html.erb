@@ -1,2 +1,14 @@
-<h1>Businesses#index</h1>
-<p>Find me in app/views/businesses/index.html.erb</p>
+<div class="jumbotron">
+  <h1>Locate A business in Your Area!</h1>
+</div>
+
+<div class="row">
+  <% @businesses.each do |business| %>
+      <div class="col-md-3">
+        <div class="caption">
+         <h3><%= business.name %></h3>
+        </div>
+      </div>
+      </div>
+  <% end %>
+</div>
