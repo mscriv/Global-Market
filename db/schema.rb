@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325172537) do
+ActiveRecord::Schema.define(version: 20150325212015) do
 
   create_table "businesses", force: true do |t|
     t.string   "name"
@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(version: 20150325172537) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "businesses", ["category_id"], name: "index_businesses_on_category_id"
@@ -53,6 +57,13 @@ ActiveRecord::Schema.define(version: 20150325172537) do
     t.integer  "listing_id"
     t.integer  "buyer_id"
     t.integer  "seller_id"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.integer  "rating"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

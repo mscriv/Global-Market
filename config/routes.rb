@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :reviews
+
   resources :businesses
   devise_for :users, path_names: {sign_in: "signin", sign_out: "signout"}
 
