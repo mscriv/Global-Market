@@ -1,14 +1,35 @@
 <div class="jumbotron">
   <h1>Locate A business in Your Area!</h1>
+  <%= form_tag businesses_path, :method => 'get', :id => "businesses_search" do %>
+
+      <p class="styled-select slate">
+        <%= select_tag :category_id, options_for_select([["Category", nil]] + Category.all.collect {|x| [x.name, x.id]}),{} %>
+        <%= text_field_tag :search, params[:search], placeholder: 'eg city' %>
+        <%= submit_tag "Search", :address => nil %>
+      </p>
+  <% end %>
+
 </div>
 
-<div class="row">
+  <table class="table table-hover table-condensed">
+    <tr>
+      <th class="center">Name</th>
+      <th class="center">Address</th>
+      <th class="center">Phone</th>
+      <th class="center">Website</th>
+    </tr>
+   <tbody>
   <% @businesses.each do |business| %>
-      <div class="col-md-3">
-        <div class="caption">
-         <h3><%= business.name %></h3>
-        </div>
-      </div>
-      </div>
+      <tr>
+         <td><%= business.name %></td>
+         <td><%= business.address %></td>
+         <td><%= business.phone %></td>
+         <td><%= business.website %></td>
+        <td><%= link_to 'Show', business, class: "btn btn-link" %></td>
+
+      </tr>
   <% end %>
-</div>
+   </tbody>
+  </table>
+
+

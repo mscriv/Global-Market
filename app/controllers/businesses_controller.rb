@@ -1,6 +1,8 @@
 class BusinessesController < ApplicationController
+
   def index
-    @businesses = Business.all
+    @businesses = Business.search(params[:category_id],params[:search])
+
   end
 
   def new
@@ -8,9 +10,11 @@ class BusinessesController < ApplicationController
   end
 
   def show
+    @business = Business.find(params[:id])
   end
 
   def edit
+    @business = Business.find(params[:id])
   end
 
   def create
