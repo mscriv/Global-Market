@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:edit, :update, :destroy]
+  before_action :set_business
+
 
 
   def new
@@ -12,6 +14,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
+    @review.business_id = @business.id
     respond_to do |format|
       if @review.save
         format.html { redirect_to root_path, notice: 'Review was successfully created.' }
@@ -33,6 +36,10 @@ class ReviewsController < ApplicationController
     def set_review
       @review = Review.find(params[:id])
     end
+
+  def set_business
+    @business = Business.find(params[:business_id])
+  end
 
     def review_params
       params.require(:review).permit(:rating, :comment)
