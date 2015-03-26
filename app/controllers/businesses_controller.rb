@@ -12,6 +12,7 @@ class BusinessesController < ApplicationController
   end
 
   def show
+    @reviews = Review.where(business_id: @business.id)
   end
 
   def edit
