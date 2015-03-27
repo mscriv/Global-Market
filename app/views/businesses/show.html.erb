@@ -29,7 +29,14 @@
 
 <%= link_to "Write Review", new_business_review_path(@business), class: "btn btn-primary" %>
 
-    </div>
+    <iframe
+    width="230"
+    height="230"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBJg0HiO2KtvExTuiWB6rKhmUUsHXFk6dY
+        &q=<%= @business.address.parameterize %>&zoom=14">    </iframe>
+
+  </div>
 
   <div class="col-md-9">
     <% if @reviews.blank? %>

@@ -22,7 +22,7 @@
    <tbody>
   <% @businesses.each do |business| %>
       <tr>
-        <td><%= image_tag business.image.url(:thumb) %></td>
+        <td><%= image_tag business.image.url(:medium) %></td>
         <td><%= business.name %></td>
          <td><%= business.address %></td>
          <td><%= business.phone %></td>
