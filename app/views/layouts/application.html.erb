@@ -10,9 +10,6 @@
 </head>
 <body>
 <header>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-
-  <!-- Optional theme -->
 
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -29,9 +26,10 @@
             </div>
         <% end %>
     <% end %>
-    <%= yield %>
-	<%= render'layouts/footer' %>
   </div>
+
+<%= yield %>
+	<%= render'layouts/footer' %>
 
 </body>
 </html>

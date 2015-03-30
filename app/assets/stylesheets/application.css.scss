@@ -11,11 +11,6 @@
  * file per style scope.
  */
 
+
+@import "bootstrap-sprockets";
 @import "bootstrap";
-
- body {
-    background-color: #F5F5F1;
-    color: #333333;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
