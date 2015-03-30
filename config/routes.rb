@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get 'seller' => "listings#seller"
   get 'sales' => "orders#sales"
   get 'purchases' => "orders#purchases"
-
   root 'welcome#index'
 
 end

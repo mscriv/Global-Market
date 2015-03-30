@@ -1,6 +1,15 @@
 <div class="jumbotron">
   <h1>Handcrafted items from around the world.</h1>
   <h2>Discover one-of-a-kind items</h2>
+
+<%= form_tag listings_path, :method => 'get', :id => "listings_search" do %>
+
+    <p class="styled-select slate">
+      <%= select_tag :department_id, options_for_select([["Department", nil]] + Department.all.collect {|x| [x.name, x.id]}),{} %>
+      <%= text_field_tag :search, params[:search], placeholder: 'eg apple' %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+<% end %>
 </div>
 
 <div class="row">

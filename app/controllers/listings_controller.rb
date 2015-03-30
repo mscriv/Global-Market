@@ -7,10 +7,13 @@ class ListingsController < ApplicationController
     @listings = Listing.where(user: current_user).order("created_at DESC")
   end
 
-  # GET /listings
-  # GET /listings.json
+  def search
+    @listings = Listing.search(params[:department_id],params[:search])
+  end
+
+
   def index
-    @listings = Listing.all.order("created_at DESC")
+    @listings = Listing.all.order("created_at DESC").search(params[:department_id],params[:search])
   end
 
   # GET /listings/1
